@@ -25,6 +25,9 @@ function Library:CreateMain()
 	UIListLayout.Parent = Frame
 	UIListLayout.SortOrder = Enum.SortOrder.LayoutOrder
 	UIListLayout.Padding = UDim.new(0, 4)
+    UIListLayout.FillDirection = Enum.FillDirection.Vertical
+    UIListLayout.FillDirection = Enum.FillDirection.Horizontal
+
 	
 	local function RQPF_fake_script() -- Frame.LocalScript 
 		local script = Instance.new('LocalScript', Frame)
