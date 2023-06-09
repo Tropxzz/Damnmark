@@ -25,8 +25,6 @@ function Library:CreateMain()
 	UIListLayout.Parent = Frame
 	UIListLayout.SortOrder = Enum.SortOrder.LayoutOrder
 	UIListLayout.Padding = UDim.new(0, 4)
-    UIListLayout.FillDirection = Enum.FillDirection.Vertical
-    UIListLayout.FillDirection = Enum.FillDirection.Horizontal
 
 	
 	local function RQPF_fake_script() -- Frame.LocalScript 
@@ -44,7 +42,7 @@ function Library:CreateMain()
 		textbutton.Parent = Frame
 		textbutton.BackgroundColor3 = Color3.new(1,1,1)
 		textbutton.Font = Enum.Font.GothamBold
-        textbutton.Size = UDim2.new(0,200,0,50)
+        textbutton.Size = {0, 200},{0, 50}
 		textbutton.Text  = name
 		textbutton.TextColor3 = Color3.new(0,0,0)
 		textbutton.FontSize = 12
