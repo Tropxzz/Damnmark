@@ -1,55 +1,54 @@
--- Gui to Lua
--- Version: 3.2
-
--- Instances:
+if game.Players.LocalPlayer.PlayerGui:FindFirstChild("ScreenGui") then
+    game.Players.LocalPlayer.PlayerGui.ScreenGui:Destroy()
+end
 
 local ScreenGui = Instance.new("ScreenGui")
+ScreenGui.Name = "ScreenGui"
+ScreenGui.Parent = game.Players.LocalPlayer.PlayerGui
+ScreenGui.ZIndexBehavior = Enum.ZIndexBehavior.Sibling
+
 local Frame = Instance.new("Frame")
+Frame.BackgroundColor3 = Color3.fromRGB(25, 25, 25)
+Frame.Position = UDim2.new(0.177642971, 0, 0.305450797, 0)
+Frame.Size = UDim2.new(0, 556, 0, 439)
+Frame.Parent = ScreenGui
+
 local UICorner = Instance.new("UICorner")
+UICorner.Parent = Frame
+
 local UIListLayout = Instance.new("UIListLayout")
+UIListLayout.SortOrder = Enum.SortOrder.LayoutOrder
+UIListLayout.Padding = UDim.new(0, 4)
+UIListLayout.Parent = Frame
+
+local function FrameLocalScript()
+    local script = Instance.new('LocalScript', Frame)
+
+    script.Parent.Active = true
+    script.Parent.Draggable = true
+end
+coroutine.wrap(FrameLocalScript)()
 
 local Library = {}
 
 --Properties:
 function Library:CreateMain()
-	ScreenGui.Parent = game.Players.LocalPlayer:WaitForChild("PlayerGui")
-	ScreenGui.ZIndexBehavior = Enum.ZIndexBehavior.Sibling
+    local GamerLibrary = {}
 
-	Frame.Parent = ScreenGui
-	Frame.BackgroundColor3 = Color3.fromRGB(25, 25, 25)
-	Frame.Position = UDim2.new(0.177642971, 0, 0.305450797, 0)
-	Frame.Size = UDim2.new(0, 556, 0, 439)
+    function GamerLibrary:NewButton(name)
+        local textbutton = Instance.new("TextButton")
+        textbutton.Parent = Frame
+        textbutton.BackgroundColor3 = Color3.new(1, 1, 1)
+        textbutton.Font = Enum.Font.GothamBold
+        textbutton.Size = UDim2.new(0, 200, 0, 50)
+        textbutton.Text = name
+        textbutton.TextColor3 = Color3.new(0, 0, 0)
+        textbutton.FontSize = 12
 
-	UICorner.Parent = Frame
+        return textbutton
+    end
 
-	UIListLayout.Parent = Frame
-	UIListLayout.SortOrder = Enum.SortOrder.LayoutOrder
-	UIListLayout.Padding = UDim.new(0, 4)
-
-	
-	local function RQPF_fake_script() -- Frame.LocalScript 
-		local script = Instance.new('LocalScript', Frame)
-
-		script.Parent.Active = true
-		script.Parent.Draggable = true
-	end
-	coroutine.wrap(RQPF_fake_script)()
-	
-	local GamerLibrary = {}
-	
-	 function GamerLibrary:NewButton(name)
-		local textbutton = Instance.new("TextButton")
-		textbutton.Parent = Frame
-		textbutton.BackgroundColor3 = Color3.new(1,1,1)
-		textbutton.Font = Enum.Font.GothamBold
-        textbutton.Size = {0, 200},{0, 50}
-		textbutton.Text  = name
-		textbutton.TextColor3 = Color3.new(0,0,0)
-		textbutton.FontSize = 12
-		
-	end
-	return GamerLibrary
+    return GamerLibrary
 end
 
-return Library;
-
+return Library
