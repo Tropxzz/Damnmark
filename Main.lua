@@ -44,13 +44,14 @@ function Library:CreateMain()
 		textbutton.Parent = Frame
 		textbutton.BackgroundColor3 = Color3.new(1,1,1)
 		textbutton.Font = Enum.Font.GothamBold
-        textbutton.Size = UDim2.new(0,200,0,38)
+        textbutton.Size = UDim2.new(0,200,0,50)
 		textbutton.Text  = name
 		textbutton.TextColor3 = Color3.new(0,0,0)
-		textbutton.FontSize = 14
+		textbutton.FontSize = 12
 		
 	end
 	return GamerLibrary
 end
 
 return Library;
+
