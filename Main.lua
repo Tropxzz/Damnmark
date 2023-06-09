@@ -39,10 +39,11 @@ function Library:CreateMain()
 	 function GamerLibrary:NewButton(name)
 		local textbutton = Instance.new("TextButton")
 		textbutton.Parent = Frame
-		textbutton.BackgroundColor3 = Color3.new(0,0,0)
+		textbutton.BackgroundColor3 = Color3.new(1,1,1)
 		textbutton.Font = Enum.Font.GothamBold
+        textbutton.Size = UDim2.new(0,200,0,38)
 		textbutton.Text  = name
-		textbutton.TextColor3 = Color3.new(1,1,1)
+		textbutton.TextColor3 = Color3.new(0,0,0)
 		textbutton.FontSize = 14
 		
 	end
