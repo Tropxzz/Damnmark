@@ -1,5 +1,5 @@
 if game.Players.LocalPlayer.PlayerGui:FindFirstChild("ScreenGui") then
-    game.Players.LocalPlayer.PlayerGui.ScreenGui:Destroy()
+    game.Players.LocalPlayer.PlayerGui:FindFirstChild("ScreenGui"):Destroy()
 end
 
 local ScreenGui = Instance.new("ScreenGui")
@@ -35,7 +35,7 @@ local Library = {}
 function Library:CreateMain()
     local GamerLibrary = {}
 
-    function GamerLibrary:NewButton(name)
+    function GamerLibrary:NewButton(name, callback)
         local textbutton = Instance.new("TextButton")
         textbutton.Parent = Frame
         textbutton.BackgroundColor3 = Color3.new(1, 1, 1)
@@ -44,6 +44,12 @@ function Library:CreateMain()
         textbutton.Text = name
         textbutton.TextColor3 = Color3.new(0, 0, 0)
         textbutton.FontSize = 12
+
+        textbutton.MouseButton1Click:Connect(function()
+            if callback then
+                callback()
+            end
+        end)
 
         return textbutton
     end
