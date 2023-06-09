@@ -2,13 +2,7 @@ if game.Players.LocalPlayer.PlayerGui:FindFirstChild("ScreenGui") then
     game.Players.LocalPlayer.PlayerGui:FindFirstChild("ScreenGui"):Destroy()
 end
 
-local function FrameLocalScript()
-    local script = Instance.new('LocalScript', Frame)
 
-    script.Parent.Active = true
-    script.Parent.Draggable = true
-end
-coroutine.wrap(FrameLocalScript)()
 
 local Library = {}
 
@@ -42,7 +36,13 @@ UIListLayout.Padding = UDim.new(0, 4)
 UIListLayout.Parent = Tabs
 
 
-Frame.Draggable = true
+local function FrameLocalScript()
+    local script = Instance.new('LocalScript', Frame)
+
+    script.Parent.Active = true
+    script.Parent.Draggable = true
+end
+coroutine.wrap(FrameLocalScript)()
 
 
     function GamerLibrary:NewButton(name, callback)
