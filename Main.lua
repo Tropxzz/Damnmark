@@ -41,7 +41,7 @@ UIListLayout.SortOrder = Enum.SortOrder.LayoutOrder
 UIListLayout.Padding = UDim.new(0, 4)
 UIListLayout.Parent = Tabs
 
-game.Players.LocalPlayer.PlayerGui.ScreenGui.Frame.Active = true
+
 Frame.Draggable = true
 
 
