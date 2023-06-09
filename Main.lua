@@ -33,6 +33,8 @@ function Library:CreateMain()
     UIListLayout.Padding = UDim.new(0, 4)
     UIListLayout.Parent = Tabs
 
+    local GamerLibrary = {}
+
     function GamerLibrary:NewButton(name, callback)
         local textbutton = Instance.new("TextButton")
         textbutton.Parent = Frame
@@ -52,8 +54,20 @@ function Library:CreateMain()
         return textbutton
     end
 
-    Frame.Active = true
-    Frame.Draggable = true
+    function GamerLibrary:AddTab(Name)
+        local button = Instance.new("TextButton")
+        button.Parent = Tabs
+        button.BackgroundColor3 = Color3.new(1, 1, 1)
+        button.Font = Enum.Font.GothamBold
+        button.Size = UDim2.new(1, 0, 0, 50)
+        button.Text = Name
+        button.TextColor3 = Color3.new(0, 0, 0)
+        button.FontSize = 12
+
+        -- Add your tab-specific logic here
+
+        return button
+    end
 
     return GamerLibrary
 end
